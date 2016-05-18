@@ -35,14 +35,15 @@
 
       (defun spacemacs//cider-eval-in-repl-no-focus (form)
         "Insert FORM in the REPL buffer and eval it."
-        (while (string-match "\\`[ \t\n\r]+\\|[ \t\n\r]+\\'" form)
-          (setq form (replace-match "" t t form)))
-        (with-current-buffer (cider-current-repl-buffer)
-          (let ((pt-max (point-max)))
-            (goto-char pt-max)
-            (insert form)
-            (indent-region pt-max (point))
-            (cider-repl-return))))
+        (when form
+          (while (string-match "\\`[ \t\n\r]+\\|[ \t\n\r]+\\'" form)
+            (setq form (replace-match "" t t form)))
+          (with-current-buffer (cider-current-repl-buffer)
+            (let ((pt-max (point-max)))
+              (goto-char pt-max)
+              (insert form)
+              (indent-region pt-max (point))
+              (cider-repl-return)))))
 
       (defun spacemacs/cider-send-last-sexp-to-repl ()
         "Send last sexp to REPL and evaluate it without changing
