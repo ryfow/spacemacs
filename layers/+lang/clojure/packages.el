@@ -147,6 +147,7 @@
           "sn" 'spacemacs/cider-send-ns-form-to-repl
           "sN" 'spacemacs/cider-send-ns-form-to-repl-focus
           "so" 'cider-repl-switch-to-other
+          "sO" 'cider-connection-browser
           "sq" 'cider-quit
           "sr" 'spacemacs/cider-send-region-to-repl
           "sR" 'spacemacs/cider-send-region-to-repl-focus
